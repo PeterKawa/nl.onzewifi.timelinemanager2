@@ -1,0 +1,46 @@
+{
+  "1.0.0": {
+    "en": "Nothing jet",
+    "nl": "Nog niets"
+  },
+  "1.1.0": {
+    "en": "Added extra action flowcards",
+    "nl": "Extra actie flowkaarten toegevoegd"
+  },
+  "1.2.0": {
+    "en": "Added more flowcards, made cosmetic changes to the credentials setup screen",
+    "nl": "Flowkaarten toegevoegd, en cosmetische aanpassingen voor het aanmeld scherm"
+  },
+  "1.3.0": {
+    "en": "Known bugs have been fixed. Additional (action) flowcard have been added. Also updated the readme.",
+    "nl": "Bugs opgelost. Additionele (actie) flowkaarten toegevoegd. Leesmij bestand bijgewerkt."
+  },
+  "1.3.1": {
+    "en": "Minor changes to the readme",
+    "nl": "Kleine aanpassingen het leesme bestand"
+  },
+  "1.5.0": {
+    "en": "Removed the development Web API Credentials from the program as it prevented the publication of the app. You need to supply your own API Credentials now.",
+    "nl": "De ontwikkel Web API Credentials verwijderd omdat het publicatie in de weg staat. API Credentials moeten nu opgegeven worden."
+  },
+  "1.5.1": {
+    "en": "Changes the frequency of which the tokens are being updated. Please upgrade as the previous version is doing the updates way to often.",
+    "nl": "Aanpassingen aan de frequentie waarmee de tokens worden geüpdate. Gelieve deze update z.s.m. te installeren."
+  },
+  "1.5.2": {
+    "en": "Fixed problem with categories",
+    "nl": "Probleem met categoriën opgelost"
+  },
+  "1.5.3": {
+    "en": "Made the logfile persistent, needed to make debugging app crashes easier.",
+    "nl": "Het logbestand permanent gemaakt. Dit op problemen met app crashes te vereenvoudigen"
+  },
+  "1.5.4": {
+    "en": "Fixed the need to restart after initial bearer fetch. Fixed a problem with the flowcard delete_by_containing",
+    "nl": "Programma hoeft na initiële configuratie nietmeer herstart te worden. Probleem opgelost met de klowkaart 'bevat tekst'"
+  },
+  "1.5.5": {
+    "en": "Fixed Fixed a problem with the flowcard delete_by_gategory",
+    "nl": "Probleem opgelost met de flowkaart 'van categorie'"
+  }
+}

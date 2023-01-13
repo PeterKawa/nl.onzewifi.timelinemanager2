@@ -1,0 +1,24 @@
+{
+  "title": {
+    "en": "Delete notifications from a certain category",
+    "nl": "Verwijder alle notificaties van een bepaalde categorie"
+  },
+  "titleFormatted": {
+    "en": "Delete notifications from category [[category]]",
+    "nl": "Verwijder alle notificaties van categorie [[category]]"
+  },
+  "args": [
+    {
+      "type": "autocomplete",
+      "name": "category",
+      "title": {
+        "en": "category",
+        "nl": "categorie"
+      },
+      "placeholder": {
+        "en": "category",
+        "nl": "categorie"
+      }
+    }
+  ]
+}

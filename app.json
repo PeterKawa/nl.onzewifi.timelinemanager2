@@ -1,0 +1,460 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "nl.onzewifi.timelinemanager2",
+  "version": "1.5.5",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "< Timeline Manager² >",
+    "nl": "< Timeline Manager² >"
+  },
+  "brandColor": "#4520DF",
+  "description": {
+    "en": "Manage Your Timeline Notifications",
+    "nl": "Beheer je Timeline Notificaties"
+  },
+  "tags": {
+    "en": [
+      "Timeline",
+      "Cleanup",
+      "Delete",
+      "Selfdestruct",
+      "Age",
+      "Category",
+      "contains",
+      "Control",
+      "Homey",
+      "Athom",
+      "cactus"
+    ],
+    "nl": [
+      "Timeline",
+      "Cleanup",
+      "Delete",
+      "Selfdestruct",
+      "Ouder",
+      "Categorie",
+      "Bevat",
+      "Controle",
+      "Homey",
+      "Athom",
+      "cactus"
+    ]
+  },
+  "category": [
+    "tools"
+  ],
+  "permissions": [
+    "homey:manager:api"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "api": {
+    "testCredentials": {
+      "method": "post",
+      "path": "/testCredentials/"
+    },
+    "getlogs": {
+      "method": "get",
+      "path": "/getlogs/"
+    },
+    "deletelogs": {
+      "method": "get",
+      "path": "/deletelogs/"
+    }
+  },
+  "author": {
+    "name": "Ricardo van Dijk",
+    "email": "rvdijk@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Ricardo van Dijk",
+        "email": "rvdijk@gmail.com"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "paypallrvdijk"
+      }
+    }
+  },
+  "platforms": [
+    "local",
+    "local"
+  ],
+  "flow": {
+    "actions": [
+      {
+        "title": {
+          "en": "Create a notification that deletes itself",
+          "nl": "Maak een notificatie die zichzelf verwijderd"
+        },
+        "titleFormatted": {
+          "en": "Create a notification that deletes itself after [[duration]] [[unit]] with the message [[message]]",
+          "nl": "Maak een melding die zichzelf verwijderd na [[duration]] [[unit]] met de meling [[message]]"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "message",
+              "nl": "melding"
+            },
+            "placeholder": {
+              "en": "message",
+              "nl": "melding"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "title": {
+              "en": "duration",
+              "nl": "duur"
+            },
+            "placeholder": {
+              "en": "number",
+              "nl": "getal"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "time unit",
+              "nl": "tijdseenheid"
+            },
+            "placeholder": {
+              "en": "time unit",
+              "nl": "tijdseenheid"
+            },
+            "values": [
+              {
+                "id": "3600",
+                "label": {
+                  "en": "hour(s)",
+                  "nl": "uur"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "second(s)",
+                  "nl": "seconde(n)"
+                }
+              },
+              {
+                "id": "60",
+                "label": {
+                  "en": "minute(s)",
+                  "nl": "minute(n)"
+                }
+              },
+              {
+                "id": "86400",
+                "label": {
+                  "en": "day(s)",
+                  "nl": "dag(en)"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "create_self_desctruction_notification"
+      },
+      {
+        "title": {
+          "en": "Delete all notifications",
+          "nl": "Verwijder alle notificaties"
+        },
+        "titleFormatted": {
+          "en": "Delete all notifications",
+          "nl": "Verwijder alle notificaties"
+        },
+        "id": "delete_all"
+      },
+      {
+        "title": {
+          "en": "Delete notifications by age",
+          "nl": "Verwijder notificaties ouder dan"
+        },
+        "titleFormatted": {
+          "en": "Delete all notifications that are older than [[duration]] [[unit]]",
+          "nl": "Verwijder alle notificaties ouder dan [[duration]] [[unit]]"
+        },
+        "args": [
+          {
+            "type": "number",
+            "name": "duration",
+            "title": {
+              "en": "duration",
+              "nl": "duur"
+            },
+            "placeholder": {
+              "en": "number",
+              "nl": "getal"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "time unit",
+              "nl": "tijdseenheid"
+            },
+            "placeholder": {
+              "en": "time unit",
+              "nl": "tijdseenheid"
+            },
+            "values": [
+              {
+                "id": "3600",
+                "label": {
+                  "en": "hour(s)",
+                  "nl": "uur"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "second(s)",
+                  "nl": "seconde(n)"
+                }
+              },
+              {
+                "id": "60",
+                "label": {
+                  "en": "minute(s)",
+                  "nl": "minu(u)t(en)"
+                }
+              },
+              {
+                "id": "86400",
+                "label": {
+                  "en": "day(s)",
+                  "nl": "dag(en)"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "delete_by_age"
+      },
+      {
+        "title": {
+          "en": "Delete notifications from a certain category",
+          "nl": "Verwijder alle notificaties van een bepaalde categorie"
+        },
+        "titleFormatted": {
+          "en": "Delete notifications from category [[category]]",
+          "nl": "Verwijder alle notificaties van categorie [[category]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "category",
+            "title": {
+              "en": "category",
+              "nl": "categorie"
+            },
+            "placeholder": {
+              "en": "category",
+              "nl": "categorie"
+            }
+          }
+        ],
+        "id": "delete_by_category"
+      },
+      {
+        "title": {
+          "en": "Delete notifications from a certain category that are older than",
+          "nl": "Verwijder alle notificaties van een bepaalde categorie ouder dan"
+        },
+        "titleFormatted": {
+          "en": "Delete notifications from category [[category]] that are older than [[duration]] [[unit]]",
+          "nl": "Verwijder alle notificaties van categorie [[category]] die ouder zijn dan [[duration]] [[unit]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "category",
+            "title": {
+              "en": "Category"
+            },
+            "placeholder": {
+              "en": "category",
+              "nl": "categorie"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "title": {
+              "en": "duration",
+              "nl": "duur"
+            },
+            "placeholder": {
+              "en": "number",
+              "nl": "getal"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "time unit",
+              "nl": "tijdseenheid"
+            },
+            "placeholder": {
+              "en": "time unit",
+              "nl": "tijdseenheid"
+            },
+            "values": [
+              {
+                "id": "3600",
+                "label": {
+                  "en": "hour(s)",
+                  "nl": "uur"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "second(s)",
+                  "nl": "seconde(n)"
+                }
+              },
+              {
+                "id": "60",
+                "label": {
+                  "en": "minute(s)",
+                  "nl": "minu(u)t(en)"
+                }
+              },
+              {
+                "id": "86400",
+                "label": {
+                  "en": "day(s)",
+                  "nl": "dag(en)"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "delete_by_category_age"
+      },
+      {
+        "title": {
+          "en": "Delete notifications containing a certain text",
+          "nl": "Verwijder notificaties die een bepaalde tekst bevatten"
+        },
+        "titleFormatted": {
+          "en": "Delete notifications that contain the text [[message]]",
+          "nl": "Verwijder notificaties die de tekst [[message]] bevatten"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "text",
+              "nl": "tekst"
+            },
+            "placeholder": {
+              "en": "text",
+              "nl": "tekst"
+            }
+          }
+        ],
+        "id": "delete_by_containing"
+      },
+      {
+        "title": {
+          "en": "Delete notifications containing a certain text older than",
+          "nl": "Verwijder notificaties met een bepaalde tekst ouder dan"
+        },
+        "titleFormatted": {
+          "en": "Delete notifications that contain the text [[message]] that are older than [[duration]] [[unit]]",
+          "nl": "Verwijder alle notificaties die de tekst [[message]] bevatten en oude dan [[duration]] [[unit]] zijn"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "text",
+              "nl": "tekst"
+            },
+            "placeholder": {
+              "en": "text",
+              "nl": "tekst"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "title": {
+              "en": "duration",
+              "nl": "duur"
+            },
+            "placeholder": {
+              "en": "number",
+              "nl": "getal"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "time unit",
+              "nl": "tijdseenheid"
+            },
+            "placeholder": {
+              "en": "time unit",
+              "nl": "tijdseenheid"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "second(s)",
+                  "nl": "seconde(n)"
+                }
+              },
+              {
+                "id": "60",
+                "label": {
+                  "en": "minute(s)",
+                  "nl": "minu(u)t(en)"
+                }
+              },
+              {
+                "id": "3600",
+                "label": {
+                  "en": "hour(s)",
+                  "nl": "uur"
+                }
+              },
+              {
+                "id": "86400",
+                "label": {
+                  "en": "day(s)",
+                  "nl": "dag(en)"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "delete_by_containing_by_age"
+      }
+    ]
+  }
+}

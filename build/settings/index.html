@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<base href="/">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Homey Account</title>
+		<link rel="stylesheet" href="./app/nl.onzewifi.timelinemanager2/settings/auth.e0887b16.css">
+		<script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+		<script>
+			credentials = {}
+		</script>
+	</head>
+	<body style="margin: 0px">
+		<div id="cover-spin"></div>
+		<main id="Logs" class="container view-login" style="display: none;">
+			<div>
+				<button type="button" class="button-primary" id="button_close" onclick="hideLogs();" data-i18n="log.close">Close</button>
+			</div>
+			</br>
+			<div>
+				<textarea id="loglines" style="overflow: hidden" type="text"></textarea>
+			</div>
+			<div>
+				<button type="button" class="button-primary" id="button_getlog" onclick="getLogs();" data-i18n="log.refresh">Refresh</button>
+			</div>
+			<div>
+				<button type="button" class="button-primary" id="button_deletelog" onclick="deleteLogs();" data-i18n="log.delete">Delete</button>
+			</div>
+
+		</main>
+		<main id="Main" class="container view-login">
+			<div id="logo"><img class="logo" src="./app/nl.onzewifi.timelinemanager2/settings/logo.db355c26.png" onclick="showLogs();"></div>
+			<div id="main">
+				<h2 data-i18n="settings.title">Web Api Credentials</h2>
+				<div template-load="login-form" class="login-form">
+					<div class="messages"></div>
+						<form name="login" novalidate="">
+						<div class="text-inputt">
+							<input id="clientid" type="text" name="clientid" placeholder="">
+						</div>
+						<div class="text-inputt">
+							<input id="clientsecret" type="text" name="clientsecret" placeholder="">
+						</div>
+						<div class="text-inputt">
+							<input id="email" type="email" name="email" placeholder="">
+						</div>
+						<div class="text-inputt">
+							<input id="password" type="password" name="password" placeholder="">
+						</div>
+						<div class="text-inputt" style="display:none" id="2facontainer">
+							<input id="otptoken" type="text" name="otptoken" placeholder="">
+						</div>
+						<div class="login">
+							<input id="save" type="button" class="button-primary" value="Get Bearer token">
+						</div>
+					</form>
+					</br>
+					<a data-i18n="settings.helptext"></a> <a data-i18n="settings.helplocation" href="https://api.developer.homey.app/#local-development"></a>
+				</div>
+			</div>
+		</main>
+		<script type="text/javascript">
+			function onHomeyReady(Homey) {
+				Homey.ready();
+
+				document.getElementById('clientid').placeholder		= Homey.__("settings.clientid")
+				document.getElementById('clientsecret').placeholder	= Homey.__("settings.clientsecret")
+				document.getElementById('email').placeholder 		= Homey.__("settings.email")
+				document.getElementById('password').placeholder		= Homey.__("settings.password")
+				document.getElementById('otptoken').placeholder		= Homey.__("settings.otptoken")
+				document.getElementById('save').value				= Homey.__("settings.getbearer")
+				
+				Homey.get('credentials', function(err, credentials) {
+					if ( err ) {
+						Homey.alert( "!!!!!" + err );
+					} else {
+						if (credentials != (null || undefined)) {
+							window.credentials = credentials
+							document.getElementById('clientid').value		= credentials.client_id
+							document.getElementById('clientsecret').value	= credentials.client_secret
+							document.getElementById('email').value			= credentials.username
+							document.getElementById('password').value		= credentials.password
+						} else {
+							window.credentials.clientid		= "";
+							window.credentials.clientsecret	= "";
+							window.credentials.username		= "";
+							window.credentials.password		= "";
+						}
+					}
+				});
+
+				var saveElement = document.getElementById("save");
+
+				saveElement.addEventListener("click", function (e) {
+					document.getElementById("cover-spin").style.display = "block";
+					Homey.api("POST", "testCredentials/?client_id=" + encodeURIComponent(document.getElementById('clientid').value) + "&client_secret=" + encodeURIComponent(document.getElementById('clientsecret').value) + "&username=" + encodeURIComponent(document.getElementById('email').value) + "&password=" + encodeURIComponent(document.getElementById('password').value) + "&otptoken=" + document.getElementById('otptoken').value, {}, function (err, result) {
+						if (err) {
+							document.getElementById("cover-spin").style.display = "none";
+							return Homey.alert(err);
+						} else {
+							document.getElementById("cover-spin").style.display = "none";
+							if (!(result.failed)) {
+								window.credentials.client_id		= document.getElementById('clientid').value;
+								window.credentials.client_secret	= document.getElementById('clientsecret').value;
+								window.credentials.username			= document.getElementById('email').value;
+								window.credentials.password			= document.getElementById('password').value;
+								//Homey.set('credentials', window.credentials, (err) => {
+								//	if (err) {
+								//		Homey.alert(err, 'error');
+								//	}
+								//});
+								Homey.alert(`${Homey.__(Homey.__("settings.saved"))}`, 'info');
+							} else {
+								if (JSON.parse(result.payload).code === 401) {
+									document.getElementById('2facontainer').style.display = ""
+								} else {
+									Homey.alert(`${Homey.__('Error ' + result.payload + '\r\n\r\n' + Homey.__("settings.notsaved"))}`, 'error');
+								}
+							}
+						}
+					});				
+				});
+				document.getElementsByTagName("link")[1].remove();  
+			}
+
+			function getLogs() {
+				Homey.api('GET', 'getlogs/', (err, result) => {
+					if (!err) {
+						document.getElementById('loglines').innerHTML = '';
+						if (result.length === 0) {
+							document.getElementById('loglines').innerHTML = Homey.__("log.nothingyet")
+						} else {
+							for (let i = (result.length - 1); i >= 0; i -= 1) {
+								document.getElementById('loglines').innerHTML += result[i];
+							}
+						}
+					} else {
+						Homey.alert(err.message, 'error'); 
+					}
+					document.getElementById('loglines').style.height = document.getElementById('loglines').scrollHeight + 'px'
+				});
+			}
+
+			function deleteLogs() {
+				Homey.api('GET', 'deletelogs/', (err) => {
+					if (err) {
+						Homey.alert(err.message, 'error'); 
+					} else { 
+						getLogs();
+						Homey.alert('Logs deleted!', 'info');
+					}
+				});
+			}
+
+			function showLogs() {
+				getLogs();
+				document.getElementById('Logs').style.display = '';
+				document.getElementById('Main').style.display = 'none'; 
+			}
+
+			function hideLogs() {
+				document.getElementById('Main').style.display = ''; 
+				document.getElementById('Logs').style.display = 'none';
+			}
+		</script>
+	</body>
+</html>   

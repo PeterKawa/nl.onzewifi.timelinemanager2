@@ -1,0 +1,29 @@
+{
+	"settings": {
+		"title":			"Web Api Settings",
+		"clientid":			"Client ID",
+		"clientsecret":		"Client Secret",
+		"email":			"E-mail address",
+		"password":			"Password",
+		"otptoken":			"2FA token",
+		"getbearer":		"Get Bearer Token",
+		"helptext":			"For more information on the Client ID and Client Secret values please look",
+		"helplocation":		"here",
+		"notsaved":			"Unable to obtain a Bearer Token with these credentials. These settings are *not* saved. Please correct the credentials and try again.",
+		"saved":			"Successfully obtained a Bearer Token, so these credentials are saved! Off you go :)"
+	},
+	"log": {
+		"close":			"Close log",
+		"refresh":			"Refresh log",
+		"delete":			"Delete log",
+		"nothingyet":		"Nothing to display yet..."
+	},
+	"app": {
+		"nosettings":		"No crededentials set, please configure the credentials.",
+		"2faenabled":		"2FA authentication is enabled, couldn't refresh the bearer token. Please re-configure the credentials.",
+		"tokenfailed":		"Couldn't get a bearer token. Please check your credentials",
+		"settingsupdated":	" successfully updated",
+		"app-start":		" started",
+		"app-end":			" ended"
+	}
+}

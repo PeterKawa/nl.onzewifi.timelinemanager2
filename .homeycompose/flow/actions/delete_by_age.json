@@ -1,0 +1,66 @@
+{
+  "title": {
+    "en": "Delete notifications by age",
+    "nl": "Verwijder notificaties ouder dan"
+  },
+  "titleFormatted": {
+    "en": "Delete all notifications that are older than [[duration]] [[unit]]",
+    "nl": "Verwijder alle notificaties ouder dan [[duration]] [[unit]]"
+  },
+  "args": [
+    {
+      "type": "number",
+      "name": "duration",
+      "title": {
+        "en": "duration",
+        "nl": "duur"
+      },
+      "placeholder": {
+        "en": "number",
+        "nl": "getal"
+      }
+    },
+    {
+      "name": "unit",
+      "type": "dropdown",
+      "title": {
+        "en": "time unit",
+        "nl": "tijdseenheid"
+      },
+      "placeholder": {
+        "en": "time unit",
+        "nl": "tijdseenheid"
+      },
+      "values": [
+        {
+          "id": "3600",
+          "label": {
+            "en": "hour(s)",
+            "nl": "uur"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "second(s)",
+            "nl": "seconde(n)"
+          }
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "minute(s)",
+            "nl": "minu(u)t(en)"
+          }
+        },
+        {
+          "id": "86400",
+          "label": {
+            "en": "day(s)",
+            "nl": "dag(en)"
+          }
+        }
+      ]
+    }
+  ]
+}

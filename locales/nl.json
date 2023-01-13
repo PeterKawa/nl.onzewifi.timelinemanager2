@@ -1,0 +1,29 @@
+{
+	"settings": {
+		"title":	 		"Web Api Instellingen",
+		"clientid":			"Client ID",
+		"clientsecret":		"Client Secret",
+		"email":	 		"E-mail adres",
+		"password": 		"Wachtwoord",
+		"otptoken":			"MFA token",
+		"getbearer":		"Haal Bearer Token op",
+		"helptext":			"Voor meer informatie over de Client ID en Client Secret waarden kijk",
+		"helplocation":		"hier",
+		"notsaved":			"Het ophalen van een Bearer Token is mislukt met deze gegevens. De instellingen zijn *niet* opgeslagen. Vul de juiste gegevens in en probeer het opnieuw.",
+		"saved":			"Het ophalen van een Bearer Token is gelukt, de instellingen zijn opgeslagen! Gaan met die banaan :)"
+	},
+	"log": {
+		"close":			"Log sluiten",
+		"refresh":			"Log vernieuwen",
+		"delete":			"Log verwijderen",
+		"nothingyet":		"Nog niets weer te geven..."
+	},
+	"app": {
+		"nosettings":		"Geen inloggegevens beschikbaar. Configureer de referenties.",
+		"2faenabled":		"2FA verificatie ingeschakeld, kun de bearer token niet vernieuwen. Meld opnieuw aan via de app configuratie.",
+		"tokenfailed":		"Kan de bearer token niet vernieuwen. Controleer uw referenties.",
+		"settingsupdated":	" succesvol bijgewerkt",
+		"app-start":		" gestart",
+		"app-end":			" beëindigd"
+	}
+}

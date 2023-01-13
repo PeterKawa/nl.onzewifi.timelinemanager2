@@ -1,0 +1,24 @@
+{
+  "title": {
+    "en": "Delete notifications containing a certain text",
+    "nl": "Verwijder notificaties die een bepaalde tekst bevatten"
+  },
+  "titleFormatted": {
+    "en": "Delete notifications that contain the text [[message]]",
+    "nl": "Verwijder notificaties die de tekst [[message]] bevatten"
+  },
+  "args": [
+    {
+      "type": "text",
+      "name": "message",
+      "title": {
+        "en": "text",
+        "nl": "tekst"
+      },
+      "placeholder": {
+        "en": "text",
+        "nl": "tekst"
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "title": {
+    "en": "Create a notification that deletes itself",
+    "nl": "Maak een notificatie die zichzelf verwijderd"
+  },
+  "titleFormatted": {
+    "en": "Create a notification that deletes itself after [[duration]] [[unit]] with the message [[message]]",
+    "nl": "Maak een melding die zichzelf verwijderd na [[duration]] [[unit]] met de meling [[message]]"
+  },
+  "args": [
+    {
+      "type": "text",
+      "name": "message",
+      "title": {
+        "en": "message",
+        "nl": "melding"
+      },
+      "placeholder": {
+        "en": "message",
+        "nl": "melding"
+      }
+    },
+    {
+      "type": "number",
+      "name": "duration",
+      "title": {
+        "en": "duration",
+        "nl": "duur"
+      },
+      "placeholder": {
+        "en": "number",
+        "nl": "getal"
+      }
+    },
+    {
+      "name": "unit",
+      "type": "dropdown",
+      "title": {
+        "en": "time unit",
+        "nl": "tijdseenheid"
+      },
+      "placeholder": {
+        "en": "time unit",
+        "nl": "tijdseenheid"
+      },
+      "values": [
+        {
+          "id": "3600",
+          "label": {
+            "en": "hour(s)",
+            "nl": "uur"
+          }
+        },
+       {
+          "id": "1",
+          "label": {
+            "en": "second(s)",
+            "nl": "seconde(n)"
+          }
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "minute(s)",
+            "nl": "minute(n)"
+          }
+        },
+        {
+          "id": "86400",
+          "label": {
+            "en": "day(s)",
+            "nl": "dag(en)"
+          }
+        }
+      ]
+    }
+  ]
+}

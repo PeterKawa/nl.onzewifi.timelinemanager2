@@ -1,0 +1,91 @@
+{
+  "id": "nl.onzewifi.timelinemanager2",
+  "version": "1.5.5",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "< Timeline Manager² >",
+    "nl": "< Timeline Manager² >"
+  },
+  "brandColor": "#4520DF",
+  "description": {
+    "en": "Manage Your Timeline Notifications",
+    "nl": "Beheer je Timeline Notificaties"
+  },
+  "tags": {
+    "en": [
+      "Timeline",
+      "Cleanup",
+      "Delete",
+      "Selfdestruct",
+      "Age",
+      "Category",
+      "contains",
+      "Control",
+      "Homey",
+      "Athom",
+      "cactus"
+    ],
+    "nl": [
+      "Timeline",
+      "Cleanup",
+      "Delete",
+      "Selfdestruct",
+      "Ouder",
+      "Categorie",
+      "Bevat",
+      "Controle",
+      "Homey",
+      "Athom",
+      "cactus"
+    ]
+  },
+  "category": [
+    "tools"
+  ],
+  "permissions": [
+    "homey:manager:api"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "api": {
+    "testCredentials": {
+      "method": "post",
+      "path": "/testCredentials/"
+    },
+    "getlogs": {
+      "method": "get",
+      "path": "/getlogs/"
+    },
+    "deletelogs": {
+      "method": "get",
+      "path": "/deletelogs/"
+    }
+  },
+  "author": {
+    "name": "Ricardo van Dijk",
+    "email": "rvdijk@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Ricardo van Dijk",
+        "email": "rvdijk@gmail.com"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "paypallrvdijk"
+      }
+    }
+  },
+  "platforms": [
+    "local",
+    "local"
+  ]
+}
